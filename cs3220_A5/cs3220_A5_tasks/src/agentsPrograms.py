@@ -14,11 +14,13 @@ def BestFirstSearchAgentProgram(f=None):
       frontier = PriorityQueue()
       frontier.put((1,node))
       reached = {problem.initial:node}
+      nodes_expanded = 0
 
       while frontier:
         node = frontier.get()[1]
         print("The node {} is extracted from frontier:".format(node.state))
-
+        nodes_expanded +=1
+        
         if problem.goal_test(node.state):
           print("We have found our goal: {}".format (node.state))
           return node

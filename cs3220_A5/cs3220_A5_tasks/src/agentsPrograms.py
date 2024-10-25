@@ -65,6 +65,7 @@ def A_StarSearchAgentProgram(f=None):
             if child.state not in reached or child.path_cost<reached[child.state].path_cost:
                 #print(child)
                 print("The child node {}.".format(child))
+                print("Child node path cost: {}".format(child.path_cost))
                 h=child.path_cost+round(f(child.state, problem.goal),3)
                 frontier.put((h,child))
                 reached.update({child.state:child})

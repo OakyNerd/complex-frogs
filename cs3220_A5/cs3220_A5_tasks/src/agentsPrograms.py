@@ -65,7 +65,7 @@ def A_StarSearchAgentProgram(f=None):
                 h=child.path_cost+round(f(child.state, problem.goal),3)
                 frontier.put((h,child))
                 reached.update({child.state:child})
-            
+        print("Nodes expanded: {}".format(nodes_expanded))
       return None
 
     return program

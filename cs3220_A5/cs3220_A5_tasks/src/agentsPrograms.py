@@ -40,6 +40,7 @@ def BestFirstSearchAgentProgram(f=None):
 def A_StarSearchAgentProgram(f=None):
     
     def program(problem):
+      print("problem: {}".format(problem))
 
       node = Node(problem.initial)
  

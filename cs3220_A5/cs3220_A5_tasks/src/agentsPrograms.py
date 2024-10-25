@@ -51,6 +51,7 @@ def A_StarSearchAgentProgram(f=None):
         print(frontier.queue)
         node = frontier.get()[1]
         print("The node {} is extracted from frontier:".format(node.state))
+        nodes_expanded += 1
 
         if problem.goal_test(node.state):
           print("We have found our goal: {}".format (node.state))

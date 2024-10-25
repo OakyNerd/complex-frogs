@@ -45,6 +45,7 @@ def A_StarSearchAgentProgram(f=None):
       h=node.path_cost+round(f(node.state, problem.goal),3)
       frontier.put((h,node))
       reached = {problem.initial:node}
+      nodes_expanded = 0
 
       while frontier:
         print(frontier.queue)

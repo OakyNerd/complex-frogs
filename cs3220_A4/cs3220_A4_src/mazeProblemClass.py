@@ -24,4 +24,4 @@ class MazeProblem(Problem):
 
     def path_cost(self, cost_so_far, A, action, B):
       #An action cost function
-      return cost_so_far + self.action_cost.get(action)
+      return cost_so_far + self.action_costs.get(action)

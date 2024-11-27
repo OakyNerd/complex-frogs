@@ -11,6 +11,7 @@ class MazeProblem(Problem):
     def __init__(self, initial, goal, graph):
       super().__init__(initial, goal)
       self.graph = graph#The state space -instance of vacuumGraph Class
+      self.action_costs = {'right':2, 'left':2, 'up':4, 'down':1}
 
     def actions(self, A):
       return list(self.graph.graph_dict[A].keys())
@@ -23,5 +24,4 @@ class MazeProblem(Problem):
 
     def path_cost(self, cost_so_far, A, action, B):
       #An action cost function
-      act_costs = {'right':2, 'left':2, 'up':4, 'down':1}
-      return cost_so_far + self.graph.get(A, B)
+      return cost_so_far + self.action_cost.get(action)

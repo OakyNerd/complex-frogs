@@ -23,4 +23,5 @@ class MazeProblem(Problem):
 
     def path_cost(self, cost_so_far, A, action, B):
       #An action cost function
+      act_costs = {'right':2, 'left':2, 'up':4, 'down':1}
       return cost_so_far + self.graph.get(A, B)

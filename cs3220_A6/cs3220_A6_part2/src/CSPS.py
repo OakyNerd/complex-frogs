@@ -1,4 +1,4 @@
-from CSPclass import CSPBasic, CSP
+from CSPclass import CSPBasic, CSP, DinnerCSP
 from utils import *
 
 def MapColoringCSP(colors, neighbors):
@@ -9,3 +9,11 @@ def MapColoringCSP(colors, neighbors):
     if isinstance(neighbors, str):
         neighbors = parse_neighbors(neighbors)
     return CSP(list(neighbors.keys()), UniversalDict(colors), neighbors, different_values_constraint)
+
+def Dinner_CSP(neighbours, people):
+
+    #from utils import dinnerConstraints, UniversalDict
+
+    if isinstance(neighbours, str):
+        neighbours = parse_neighbors(neighbours)
+    return DinnerCSP(list(neighbours.keys()), UniversalDict(people), neighbours, dinnerConstraints)

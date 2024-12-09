@@ -42,7 +42,7 @@ def AC3(csp):
 def revise(csp, Xi, Xj, checks=0):
     """Return true if we remove a value."""
     revised = False
-    print(f'Arc {(Xi, Xj)} is cheking')
+    print(f'Arc {(Xi, Xj)} is checking')
     for x in csp.curr_domains[Xi][:]:
         # If Xi=x conflicts with Xj=y for every possible y, eliminate Xi=x
         # if all(not csp.constraints(Xi, x, Xj, y) for y in csp.curr_domains[Xj]):
@@ -106,6 +106,8 @@ def backtracking_search(csp, select_unassigned_variable=first_unassigned_variabl
         for value in order_domain_values(var, assignment, csp):
             if csp.nconflicts(var, value, assignment)==0:
                 csp.assign(var, value, assignment)
+                for var in csp.variables:
+                   csp.prune(var, value)
                 result = backtrack(assignment)
                 if result is not None:
                   return result

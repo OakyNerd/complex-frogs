@@ -12,6 +12,14 @@ class CSPBasic(Problem):
         self.curr_domains = None
         self.nassigns = 0
 
+      def add_constraint(self, Xi, Xj, constraint):
+        if (Xi, Xj) not in self.constraints:
+         self.constraints[(Xi, Xj)] = constraint
+        if (Xj, Xi) not in self.constraints:
+          self.constraints[(Xj, Xi)] = lambda y, x: constraint(x, y)  # Reverse arguments
+        self.neighbors[Xi].append(Xj)
+        self.neighbors[Xj].append(Xi)
+
       # These are for constraint propagation
 
       def support_pruning(self):

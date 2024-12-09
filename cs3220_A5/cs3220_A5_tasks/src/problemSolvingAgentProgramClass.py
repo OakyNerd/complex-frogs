@@ -19,6 +19,7 @@ class SimpleProblemSolvingAgentProgram:
             problem = self.formulate_problem(self.state, goal)
             #print(problem.initial)
             self.seq = self.search(problem)
+            print("self.seq: {}".format(self.seq))
             if not self.seq:
                 return None
         return self.seq[0]

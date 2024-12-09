@@ -19,6 +19,7 @@ def min_conflicts(csp, max_steps=100000):
         print(f"The var. {var} was selected randomly")
         val = min_conflicts_value(csp, var, current)
         csp.assign(var, val, current)
+        print(f"The current assignment: {csp.current}")
     return None
 
 
@@ -33,7 +34,7 @@ def AC3(csp):
       queue.put((Xi, Xk))
       print((Xi, Xk), end=" ")
     print()
-   
+
   csp.support_pruning()
   checks = 0
   while list(queue.queue):

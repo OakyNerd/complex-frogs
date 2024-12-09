@@ -12,7 +12,7 @@ def MapColoringCSP(colors, neighbors):
 
 def Dinner_CSP(neighbours, people):
 
-    from utils import dinnerConstraints, UniversalDict
+    #from utils import dinnerConstraints, UniversalDict
 
     if isinstance(neighbours, str):
         neighbours = parse_neighbors(neighbours)

@@ -57,9 +57,9 @@ class CSP(CSPBasic):
         return (self.curr_domains or self.domains)[var]
   
 
-def DinnerCSP(CSP):
-      def __init__(self, variables, domains, neighbours, constraints):
-            super().__init__(variables, domains, neighbours, constraints)
+class DinnerCSP(CSP):
+      def __init__(self, variables, domains, neighbors, constraints):
+            super().__init__(variables, domains, neighbors, constraints)
       
       def assign(self, var, val, assignment):
            #Ensure each person gets assigned to one seat

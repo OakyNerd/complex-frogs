@@ -55,4 +55,21 @@ class CSP(CSPBasic):
   def choices(self, var):
         """Return all values for var that aren't currently ruled out."""
         return (self.curr_domains or self.domains)[var]
+  
+
+def DinnerCSP(CSP):
+      def __init__(self, variables, domains, neighbours, constraints):
+            super().__init__(variables, domains, neighbours, constraints)
+      
+      def assign(self, var, val, assignment):
+           #Ensure each person gets assigned to one seat
+           super().assign(var, val, assignment)
+           self.variables.remove(var)
+
+      def unassign(self, var, assignment):
+           #Ensure once something is unassigned it gets put back in the list to be reassigned
+           super().unassign(var, assignment)
+           self.variables.append(var)
+
+
 

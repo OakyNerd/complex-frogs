@@ -24,7 +24,15 @@ def different_values_constraint(A, a, B, b):
     """A constraint saying two neighboring variables must differ in value."""
     return a != b
 
-
+def dinnerConstraints(A, a, B, b):
+   if a == 'A' and b == 'B' or a == 'B' and b == 'A':
+    return False
+   elif a == 'B' and b == 'E' or a == 'E' and b == 'B':
+    return False
+   elif a == 'C' and b == 'B' or a == 'B' and b == 'C':
+    return False
+   else:
+      return True
 
 def parse_neighbors(neighbors):
     """Convert a string of the form 'X: Y Z; Y: Z' into a dict mapping
